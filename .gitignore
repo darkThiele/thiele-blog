@@ -1,2 +1,3 @@
 # Secret Environment
 .env
+.db.sqlite3

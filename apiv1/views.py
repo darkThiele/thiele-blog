@@ -7,6 +7,6 @@ from .serializers import ArticleSerializer
 # Create your views here.
 class ArticleViewSet(viewsets.ModelViewSet):
 
-    queryset = Article.objects.all()
+    queryset = Article.objects.all().order_by('-created_at')
     serializer_class = ArticleSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
