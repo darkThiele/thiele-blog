@@ -16,3 +16,16 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    class Meta:
+        db_table = 'comment'
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(verbose_name="名前", max_length=30)
+    body = models.TextField(verbose_name='本文', max_length = 200)
+    created_at = models.DateTimeField(default=timezone.now)
+    article = models.ForeignKey(Article, verbose_name="記事", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
