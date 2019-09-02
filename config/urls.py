@@ -25,5 +25,5 @@ urlpatterns = [
     path('api/v1/comments/', views.CommentAPIView.as_view()),
     path('api/v1/auth/', include('djoser.urls')),
     path('api/v1/auth/', include('djoser.urls.jwt')),
-    re_path(r'\w*', RedirectView.as_view(url='/')),
+    re_path(r'.*', RedirectView.as_view(url='/')),
 ]
