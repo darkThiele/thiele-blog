@@ -24,6 +24,7 @@ class Tag(models.Model):
     class Tag:
         db_table = 'tag'
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     article = models.ManyToManyField(Article, verbose_name='タグ', related_name="tags", related_query_name="tag")
     tagname = models.CharField(verbose_name="タグ", max_length=10, unique=True)
 
