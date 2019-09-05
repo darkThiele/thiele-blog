@@ -24,7 +24,7 @@ class Tag(models.Model):
     class Tag:
         db_table = 'tag'
 
-    article = models.ManyToManyField(Article, verbose_name='タグ', related_name="tags", related_query_name="tag")
+    article = models.ManyToManyField(Article, verbose_name='タグ', related_name="tags", related_query_name="tag", blank=True)
     tagname = models.CharField(verbose_name="タグ", max_length=10, unique=True)
 
     def __str__(self):
