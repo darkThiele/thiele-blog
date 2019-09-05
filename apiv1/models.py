@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
+
 class Article(models.Model):
     """ 記事モデル """
     class Meta:
@@ -17,7 +18,20 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+
+class Tag(models.Model):
+
+    class Tag:
+        db_table = 'tag'
+
+    article = models.ManyToManyField(Article, verbose_name='タグ', related_name="tags", related_query_name="tag")
+    tagname = models.CharField(verbose_name="タグ", max_length=10, unique=True)
+
+    def __str__(self):
+        return self.tagname
+
 class Comment(models.Model):
+
     class Meta:
         db_table = 'comment'
 
